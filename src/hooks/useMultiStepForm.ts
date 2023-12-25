@@ -33,6 +33,8 @@ function useMultiStepForm(steps: ReactElement[]) {
     steps,
     currentStepIndex,
     currentStep: steps[currentStepIndex],
+    isStart: currentStepIndex === 0,
+    isLast: currentStepIndex === steps.length - 1,
     next,
     back,
     goTo,

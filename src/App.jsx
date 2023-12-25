@@ -52,9 +52,13 @@ const FORM_DATA = {
 };
 
 function App() {
-  const { steps, currentStepIndex, currentStep, next, back } = useMultiStepForm(
-    [<YourInfoForm />, <SelectPlanForm />, <AddOnsForm />, <SummaryForm />],
-  );
+  const { steps, currentStepIndex, currentStep, isStart, isLast, next, back } =
+    useMultiStepForm([
+      <YourInfoForm />,
+      <SelectPlanForm />,
+      <AddOnsForm />,
+      <SummaryForm />,
+    ]);
 
   return (
     <main className="relative bg-lighter-blue min-h-screen flex items-start md:items-center">
@@ -71,10 +75,17 @@ function App() {
           <FormWrapper formId="multi-step_form">{currentStep}</FormWrapper>
         </form>
       </section>
-      <footer className="bg-white h-[72px] fixed bottom-0 flex items-center w-full justify-between md:hidden">
-        <button type="button" form="multi-step_form" onClick={back}>
-          Go Back
-        </button>
+      <footer className="bg-white h-[72px] fixed bottom-0 flex justify-end items-center w-full md:hidden">
+        {!isStart && (
+          <button
+            className="mr-auto"
+            type="button"
+            form="multi-step_form"
+            onClick={back}
+          >
+            Go Back
+          </button>
+        )}
         <button type="button" form="multi-step_form" onClick={next}>
           Next Step
         </button>
