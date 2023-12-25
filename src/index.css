@@ -3,14 +3,14 @@
 @tailwind utilities;
 
 @font-face {
-  font-family: "Ubuntu";
-  src: url("./assets/fonts/Ubuntu-Regular.ttf");
-  src: url("./assets/fonts/Ubuntu-Medium.ttf");
-  src: url("./assets/fonts/Ubuntu-Bold.ttf");
+  font-family: 'Ubuntu';
+  src: url('./assets/fonts/Ubuntu-Regular.ttf');
+  src: url('./assets/fonts/Ubuntu-Medium.ttf');
+  src: url('./assets/fonts/Ubuntu-Bold.ttf');
 }
 
 :root {
-  font-family: "Ubuntu", system-ui, Avenir, Helvetica, Arial, sans-serif;
+  font-family: 'Ubuntu', system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
