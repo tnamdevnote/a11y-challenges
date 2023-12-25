@@ -22,6 +22,20 @@ export default {
         alabaster: "hsl(231, 100%, 99%)",
         "white:": "hsl(0, 0%, 100%)",
       },
+      borderRadius: {
+        sm: "4px",
+      },
+      fontFamily: {
+        ubuntuBold: ["UbuntuBold", "sans-serif"],
+        ubuntuMedium: ["UbuntuMedium", "sans-serif"],
+        ubuntuRegular: ["UbuntuRegular", "sans-serif"],
+      },
+      fontSize: {
+        sm: ["12px", "auto"],
+        base: ["14px", "auto"],
+        lg: ["16px", "25px"],
+        heading: ["32px", "auto"],
+      },
     },
   },
   plugins: [],

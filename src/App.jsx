@@ -67,7 +67,7 @@ function App() {
         ))}
       </div>
       <section className="rounded-xl max-w-[940px] w-full min-h-96 lg:mx-auto my-[99px] md:top-0 drop-shadow-xl mx-8 bg-white">
-        <form id="multi-step_form">
+        <form id="multi-step_form" className="p-8">
           <FormWrapper formId="multi-step_form">{currentStep}</FormWrapper>
         </form>
       </section>
