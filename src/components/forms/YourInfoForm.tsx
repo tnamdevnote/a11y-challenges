@@ -1,9 +1,13 @@
 import React from "react";
 import FormWrapper from "./FormWrapper";
 
-function YourInfoForm({}) {
+function YourInfoForm() {
   return (
-    <FormWrapper formId="multi-step-form">
+    <FormWrapper
+      formId="multi-step-form"
+      title="Personal Info"
+      subtitle="Please provide your name, email address, and phone number"
+    >
       <label className="flex flex-col gap-1 text-xs text-marine-blue">
         Name
         <input
