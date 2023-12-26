@@ -71,9 +71,34 @@ function App() {
           </span>
         ))}
       </div>
-      <section className="mx-8 my-[99px] min-h-96 w-full max-w-[940px] rounded-xl bg-white drop-shadow-xl md:top-0 lg:mx-auto">
-        <form id="multi-step_form" className="p-8">
+      <section className="mx-8 my-[99px] min-h-96 w-full max-w-[940px] rounded-xl bg-white drop-shadow-xl md:flex lg:mx-auto">
+        <div className="md:bg-bg-sidebar-desktop m-4 mr-0 hidden h-[568px] w-[274px] flex-shrink-0 md:block"></div>
+        <form
+          id="multi-step_form"
+          className="p-8 md:flex md:w-full md:flex-col md:justify-between md:px-20 md:pt-16"
+        >
           {currentStep}
+          <div className="hidden md:flex md:justify-end">
+            {!isStart && (
+              <button
+                className="mr-auto"
+                type="button"
+                form="multi-step_form"
+                onClick={back}
+              >
+                Go Back
+              </button>
+            )}
+            {isLast ? (
+              <button type="button" form="multi-step_form" onClick={next}>
+                Confirm
+              </button>
+            ) : (
+              <button type="button" form="multi-step_form" onClick={next}>
+                Next Step
+              </button>
+            )}
+          </div>
         </form>
       </section>
       <footer className="fixed bottom-0 flex h-[72px] w-full items-center justify-end bg-white md:hidden">
@@ -87,9 +112,15 @@ function App() {
             Go Back
           </button>
         )}
-        <button type="button" form="multi-step_form" onClick={next}>
-          Next Step
-        </button>
+        {isLast ? (
+          <button type="button" form="multi-step_form" onClick={next}>
+            Confirm
+          </button>
+        ) : (
+          <button type="button" form="multi-step_form" onClick={next}>
+            Next Step
+          </button>
+        )}
       </footer>
     </main>
   );
