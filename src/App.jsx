@@ -81,7 +81,7 @@ function App() {
           <div className="hidden md:flex md:justify-end">
             {!isStart && (
               <button
-                className="mr-auto"
+                className="mr-auto rounded-md text-lg text-cool-gray transition-colors hover:text-marine-blue"
                 type="button"
                 form="multi-step_form"
                 onClick={back}
@@ -90,21 +90,29 @@ function App() {
               </button>
             )}
             {isLast ? (
-              <button type="button" form="multi-step_form" onClick={next}>
+              <button
+                className="rounded-md bg-purplish-blue px-6 text-lg text-white transition-colors hover:bg-purplish-blue/80"
+                type="button"
+                onClick={next}
+              >
                 Confirm
               </button>
             ) : (
-              <button type="button" form="multi-step_form" onClick={next}>
+              <button
+                className="rounded-md bg-marine-blue px-6 text-lg text-white transition-colors hover:bg-marine-blue/80"
+                type="button"
+                onClick={next}
+              >
                 Next Step
               </button>
             )}
           </div>
         </form>
       </section>
-      <footer className="fixed bottom-0 flex h-[72px] w-full items-center justify-end bg-white md:hidden">
+      <footer className="fixed bottom-0 flex h-[72px] w-full items-center justify-end bg-white p-8 md:hidden">
         {!isStart && (
           <button
-            className="mr-auto"
+            className="mr-auto rounded-sm text-base text-cool-gray transition-colors hover:text-marine-blue"
             type="button"
             form="multi-step_form"
             onClick={back}
@@ -113,11 +121,21 @@ function App() {
           </button>
         )}
         {isLast ? (
-          <button type="button" form="multi-step_form" onClick={next}>
+          <button
+            className="rounded-sm bg-purplish-blue px-4 text-base text-white transition-colors hover:bg-purplish-blue/80"
+            type="button"
+            form="multi-step_form"
+            onClick={next}
+          >
             Confirm
           </button>
         ) : (
-          <button type="button" form="multi-step_form" onClick={next}>
+          <button
+            className="rounded-sm bg-marine-blue px-4 text-base text-white transition-colors hover:bg-marine-blue/80"
+            type="button"
+            form="multi-step_form"
+            onClick={next}
+          >
             Next Step
           </button>
         )}
