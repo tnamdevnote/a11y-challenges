@@ -3,7 +3,7 @@ import YourInfoForm from "./components/forms/YourInfoForm";
 import SelectPlanForm from "./components/forms/SelectPlanForm";
 import AddOnsForm from "./components/forms/AddOnsForm";
 import SummaryForm from "./components/forms/SummaryForm";
-import FormWrapper from "./components/forms/FormWrapper";
+import { useState } from "react";
 
 const FORM_DATA = {
   name: "",
@@ -52,30 +52,31 @@ const FORM_DATA = {
 };
 
 function App() {
+  const [formData, setFormData] = useState(FORM_DATA);
   const { steps, currentStepIndex, currentStep, isStart, isLast, next, back } =
     useMultiStepForm([
-      <YourInfoForm />,
-      <SelectPlanForm />,
-      <AddOnsForm />,
-      <SummaryForm />,
+      <YourInfoForm data={formData} />,
+      <SelectPlanForm data={formData} />,
+      <AddOnsForm data={formData} />,
+      <SummaryForm data={formData} />,
     ]);
 
   return (
-    <main className="relative bg-lighter-blue min-h-screen flex items-start md:items-center">
-      <header className="bg-bg-sidebar-mobile bg-cover fixed top-0 flex justify-center w-full h-[172px] md:hidden"></header>
-      <div className="top-8 left-1/2 -translate-x-1/2 absolute flex gap-6 items-center md:hidden">
+    <main className="relative flex min-h-screen items-start bg-lighter-blue md:items-center">
+      <header className="fixed top-0 flex h-[172px] w-full justify-center bg-bg-sidebar-mobile bg-cover md:hidden"></header>
+      <div className="absolute left-1/2 top-8 flex -translate-x-1/2 items-center gap-6 md:hidden">
         {steps.map((_, i) => (
-          <span className="items-center flex justify-center rounded-full w-8 h-8 ring-1 text-white ring-white">
+          <span className="flex h-8 w-8 items-center justify-center rounded-full text-white ring-1 ring-white">
             {i + 1}
           </span>
         ))}
       </div>
-      <section className="rounded-xl max-w-[940px] w-full min-h-96 lg:mx-auto my-[99px] md:top-0 drop-shadow-xl mx-8 bg-white">
+      <section className="mx-8 my-[99px] min-h-96 w-full max-w-[940px] rounded-xl bg-white drop-shadow-xl md:top-0 lg:mx-auto">
         <form id="multi-step_form" className="p-8">
-          <FormWrapper formId="multi-step_form">{currentStep}</FormWrapper>
+          {currentStep}
         </form>
       </section>
-      <footer className="bg-white h-[72px] fixed bottom-0 flex justify-end items-center w-full md:hidden">
+      <footer className="fixed bottom-0 flex h-[72px] w-full items-center justify-end bg-white md:hidden">
         {!isStart && (
           <button
             className="mr-auto"

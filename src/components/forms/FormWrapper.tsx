@@ -10,14 +10,14 @@ function FormWrapper({
   return (
     <fieldset form={formId}>
       <legend>
-        <h2 className="text-heading text-marine-blue font-ubuntuBold">
+        <h2 className="font-ubuntuBold text-heading text-marine-blue">
           Personal Info
         </h2>
-        <p className="text-cool-gray font-ubuntuRegular text-lg">
+        <p className="font-ubuntuRegular text-lg text-cool-gray">
           Please provide your name, email address, and phone number
         </p>
       </legend>
-      <div className="flex flex-col gap-4 mt-4">{children}</div>
+      <div className="mt-4 flex flex-col gap-4">{children}</div>
     </fieldset>
   );
 }
