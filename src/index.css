@@ -2,6 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .btn-primary {
+    @apply bg-marine-blue text-white transition-colors hover:bg-marine-blue/80;
+  }
+  .btn-secondary {
+    @apply bg-purplish-blue text-white transition-colors hover:bg-purplish-blue/80;
+  }
+  .btn-no-fill {
+    @apply rounded-md text-cool-gray transition-colors hover:text-marine-blue;
+  }
+}
+
 @font-face {
   font-family: "UbuntuBold";
   src: url("./assets/fonts/Ubuntu-Bold.ttf");
