@@ -19,7 +19,7 @@ function FormWrapper({
         </h2>
         <p className="font-ubuntuRegular text-lg text-cool-gray">{subtitle}</p>
       </legend>
-      <div className="mt-4 flex flex-col gap-4">{children}</div>
+      <div className="mt-8 flex flex-col gap-4">{children}</div>
     </fieldset>
   );
 }

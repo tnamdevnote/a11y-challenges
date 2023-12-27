@@ -76,7 +76,7 @@ function App() {
         </div>
         <form
           id="multi-step_form"
-          className="p-8 md:flex md:w-full md:flex-col md:justify-between md:px-20 md:pt-16"
+          className="p-8 md:flex md:w-full md:flex-col md:justify-between md:px-16 md:pt-16"
         >
           {currentStep}
           <div className="hidden md:flex md:justify-end">

@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import FormWrapper from "./FormWrapper";
+import Arcade from "../icons/arcade";
+import Advanced from "../icons/advanced";
+import Pro from "../icons/pro";
 
 type PlanProps = {
   planType: "monthly" | "yearly";
@@ -29,35 +32,79 @@ function SelectPlanForm({
       title="Select Your Plan"
       subtitle="You have the option of monthly or yearly billing"
     >
-      <div className="h-full w-full">
-        <div className="flex flex-col gap-4 md:flex-row">
-          <input
-            id="arcade"
-            type="radio"
-            name="arcade"
-            value={9}
-            checked={selected === "arcade"}
-            onChange={handleChange}
-          />
-          <label htmlFor="arcade">Arcade</label>
-          <input
-            id="advanced"
-            type="radio"
-            name="advanced"
-            value={12}
-            checked={selected === "advanced"}
-            onChange={handleChange}
-          />
-          <label htmlFor="advanced">Advanced</label>
-          <input
-            id="pro"
-            type="radio"
-            name="pro"
-            value={15}
-            checked={selected === "pro"}
-            onChange={handleChange}
-          />
-          <label htmlFor="pro">Pro</label>
+      <div className="flex h-full w-full flex-col">
+        <div className="mb-8 flex flex-col gap-4 md:flex-row">
+          <label
+            htmlFor="arcade"
+            className={`flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue md:flex-col md:items-start md:gap-10 ${
+              selected === "arcade" ? "bg-light-gray/20 ring-purplish-blue" : ""
+            }`}
+          >
+            <input
+              id="arcade"
+              className="sr-only"
+              type="radio"
+              name="arcade"
+              value={9}
+              checked={selected === "arcade"}
+              onChange={handleChange}
+            />
+            <Arcade />
+            <span className="flex flex-col font-ubuntuMedium text-lg">
+              Arcade
+              <span className="font-ubuntuRegular text-base text-cool-gray">
+                $9/mo
+              </span>
+            </span>
+          </label>
+          <label
+            htmlFor="advanced"
+            className={`flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue md:flex-col md:items-start md:gap-10 ${
+              selected === "advanced"
+                ? "bg-light-gray/20 ring-purplish-blue"
+                : ""
+            }`}
+          >
+            <input
+              id="advanced"
+              className="sr-only"
+              type="radio"
+              name="advanced"
+              value={12}
+              checked={selected === "advanced"}
+              onChange={handleChange}
+            />
+            <Advanced />
+            <span className="flex flex-col font-ubuntuMedium text-lg">
+              Advanced
+              <span className="font-ubuntuRegular text-base text-cool-gray">
+                $9/mo
+              </span>
+            </span>
+          </label>
+          <label
+            htmlFor="pro"
+            className={`flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue md:flex-col md:items-start md:gap-10 ${
+              selected === "pro" ? "bg-light-gray/20 ring-purplish-blue" : ""
+            }`}
+          >
+            <input
+              id="pro"
+              className="sr-only"
+              type="radio"
+              name="pro"
+              value={15}
+              checked={selected === "pro"}
+              onChange={handleChange}
+            />
+            <Pro />
+            <span className="flex flex-col font-ubuntuMedium text-lg">
+              Pro
+              <span className="font-ubuntuRegular text-base text-cool-gray">
+                $9/mo
+              </span>
+            </span>
+          </label>
         </div>
         <div className="flex justify-center rounded-lg bg-lighter-blue p-3">
           Monthly
