@@ -5,7 +5,7 @@ function YourInfoForm() {
   return (
     <FormWrapper
       formId="multi-step-form"
-      title="Personal Info"
+      title="Personal info"
       subtitle="Please provide your name, email address, and phone number."
     >
       <label className="flex flex-col gap-1 text-xs text-marine-blue">
