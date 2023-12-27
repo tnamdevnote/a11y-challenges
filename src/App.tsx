@@ -11,21 +11,21 @@ type FormData = {
   email: string;
   phone: string;
   planType: "monthly" | "yearly";
-  plan: { id: string; label: string; price: number };
+  plan: { id: string; price: number };
   addOns?: { id: string; label: string; price: number }[];
 };
 
-const INITIAL_DATA = {
+const INITIAL_DATA: FormData = {
   name: "",
   email: "",
   phone: "",
   planType: "monthly",
-  plan: {},
+  plan: { id: "arcade", price: 9 },
 };
 
 function App() {
   const [formData, setFormData] = useState(INITIAL_DATA);
-  const updateForm = (fields: Partial<FormData>) => {
+  const updateFormData = (fields: Partial<FormData>) => {
     setFormData((prev) => {
       return { ...prev, ...fields };
     });
@@ -33,18 +33,19 @@ function App() {
 
   const { steps, currentStepIndex, currentStep, isStart, isLast, next, back } =
     useMultiStepForm([
-      <YourInfoForm {...formData} onChange={updateForm} />,
-      <SelectPlanForm />,
+      <YourInfoForm {...formData} updateFormData={updateFormData} />,
+      <SelectPlanForm {...formData} updateFormData={updateFormData} />,
       <AddOnsForm />,
       <SummaryForm />,
     ]);
-
+  console.log(formData);
   return (
     <main className="relative flex min-h-screen items-start bg-lighter-blue md:items-center">
       <header className="fixed top-0 flex h-[172px] w-full justify-center bg-bg-sidebar-mobile bg-cover md:hidden"></header>
       <div className="absolute left-1/2 top-8 flex -translate-x-1/2 items-center gap-6 md:hidden">
         {steps.map((_, i) => (
           <button
+            key={i}
             type="button"
             className={`h-8 w-8 rounded-full p-0 ${
               currentStepIndex === i
@@ -57,9 +58,10 @@ function App() {
         ))}
       </div>
       <section className="mx-8 my-[99px] min-h-96 w-full max-w-[940px] rounded-xl bg-white drop-shadow-xl md:flex lg:mx-auto">
-        <div className="md:bg-bg-sidebar-desktop m-4 mr-0 hidden h-[568px] w-[274px] flex-shrink-0 md:flex md:flex-col">
+        <div className="m-4 mr-0 hidden h-[568px] w-[274px] flex-shrink-0 md:flex md:flex-col md:bg-bg-sidebar-desktop">
           {steps.map((_, i) => (
             <button
+              key={i}
               type="button"
               className={`h-8 w-8 rounded-full p-0 ${
                 currentStepIndex === i

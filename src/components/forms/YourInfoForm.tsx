@@ -8,15 +8,20 @@ type YourInfoProps = {
 };
 
 type YourInfoFormProps = YourInfoProps & {
-  onChange: (field: Partial<YourInfoProps>) => void;
+  updateFormData: (field: Partial<YourInfoProps>) => void;
 };
 
-function YourInfoForm({ name, email, phone, onChange }: YourInfoFormProps) {
+function YourInfoForm({
+  name,
+  email,
+  phone,
+  updateFormData,
+}: YourInfoFormProps) {
   const handleChange = (
     field: string,
     e: React.ChangeEvent<HTMLInputElement>,
   ) => {
-    onChange({ [field]: e.target.value });
+    updateFormData({ [field]: e.target.value });
   };
   return (
     <FormWrapper
