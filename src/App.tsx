@@ -10,7 +10,7 @@ type FormData = {
   name: string;
   email: string;
   phone: string;
-  planType: "monthly" | "yearly";
+  isMonthly: boolean;
   plan: { id: string; price: number };
   addOns?: { id: string; label: string; price: number }[];
 };
@@ -19,7 +19,7 @@ const INITIAL_DATA: FormData = {
   name: "",
   email: "",
   phone: "",
-  planType: "monthly",
+  isMonthly: true,
   plan: { id: "arcade", price: 9 },
 };
 

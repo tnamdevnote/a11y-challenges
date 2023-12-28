@@ -1,11 +1,11 @@
 import React, { useState } from "react";
 import FormWrapper from "./FormWrapper";
-import Arcade from "../icons/arcade";
-import Advanced from "../icons/advanced";
-import Pro from "../icons/pro";
+import Arcade from "../icons/Arcade";
+import Advanced from "../icons/Advanced";
+import Pro from "../icons/Pro";
 
 type PlanProps = {
-  planType: "monthly" | "yearly";
+  isMonthly: boolean;
   plan: { id: string; price: number };
 };
 
@@ -14,16 +14,22 @@ type SelectPlanFormProps = PlanProps & {
 };
 
 function SelectPlanForm({
-  planType,
+  isMonthly,
   plan,
   updateFormData,
 }: SelectPlanFormProps) {
-  const [selected, setSelected] = useState("arcade");
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePlanChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const { name, value } = e.target;
-    setSelected(name);
     updateFormData({
       plan: { id: name, price: parseInt(value) },
+    });
+  };
+
+  const handleBillingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const { name, value } = e.target;
+    console.log(value);
+    updateFormData({
+      isMonthly: !isMonthly,
     });
   };
   return (
@@ -37,7 +43,7 @@ function SelectPlanForm({
           <label
             htmlFor="arcade"
             className={`flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue md:flex-col md:items-start md:gap-10 ${
-              selected === "arcade" ? "bg-light-gray/20 ring-purplish-blue" : ""
+              plan.id === "arcade" ? "bg-light-gray/20 ring-purplish-blue" : ""
             }`}
           >
             <input
@@ -46,8 +52,8 @@ function SelectPlanForm({
               type="radio"
               name="arcade"
               value={9}
-              checked={selected === "arcade"}
-              onChange={handleChange}
+              checked={plan.id === "arcade"}
+              onChange={handlePlanChange}
             />
             <Arcade />
             <span className="flex flex-col font-ubuntuMedium text-lg">
@@ -60,7 +66,7 @@ function SelectPlanForm({
           <label
             htmlFor="advanced"
             className={`flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue md:flex-col md:items-start md:gap-10 ${
-              selected === "advanced"
+              plan.id === "advanced"
                 ? "bg-light-gray/20 ring-purplish-blue"
                 : ""
             }`}
@@ -71,8 +77,8 @@ function SelectPlanForm({
               type="radio"
               name="advanced"
               value={12}
-              checked={selected === "advanced"}
-              onChange={handleChange}
+              checked={plan.id === "advanced"}
+              onChange={handlePlanChange}
             />
             <Advanced />
             <span className="flex flex-col font-ubuntuMedium text-lg">
@@ -85,7 +91,7 @@ function SelectPlanForm({
           <label
             htmlFor="pro"
             className={`flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue md:flex-col md:items-start md:gap-10 ${
-              selected === "pro" ? "bg-light-gray/20 ring-purplish-blue" : ""
+              plan.id === "pro" ? "bg-light-gray/20 ring-purplish-blue" : ""
             }`}
           >
             <input
@@ -94,8 +100,8 @@ function SelectPlanForm({
               type="radio"
               name="pro"
               value={15}
-              checked={selected === "pro"}
-              onChange={handleChange}
+              checked={plan.id === "pro"}
+              onChange={handlePlanChange}
             />
             <Pro />
             <span className="flex flex-col font-ubuntuMedium text-lg">
@@ -107,11 +113,27 @@ function SelectPlanForm({
           </label>
         </div>
         <div className="flex justify-center rounded-lg bg-lighter-blue p-3">
-          <label className="relative inline-flex cursor-pointer items-center">
-            <input type="checkbox" value="" className="peer sr-only" />
-            <div className="peer h-6 w-11 rounded-full bg-gray-200 after:absolute after:start-[2px] after:top-0.5 after:h-5 after:w-5 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:bg-blue-600 peer-checked:after:translate-x-full peer-checked:after:border-white peer-focus:ring-4 peer-focus:ring-blue-300 rtl:peer-checked:after:-translate-x-full dark:border-gray-600 dark:bg-gray-700 dark:peer-focus:ring-blue-800"></div>
-            <span className="ms-3 text-sm font-medium text-gray-900 dark:text-gray-300">
-              Checked toggle
+          <label className="relative inline-flex cursor-pointer items-center gap-4">
+            <span
+              className={`text-sm font-medium  ${
+                isMonthly ? "text-marine-blue" : "text-cool-gray"
+              }`}
+            >
+              Monthly
+            </span>
+            <input
+              type="checkbox"
+              className="peer sr-only"
+              onChange={handleBillingChange}
+              checked={isMonthly}
+            />
+            <div className="peer relative h-6 w-11 rounded-full bg-marine-blue after:absolute after:end-[4px] after:top-1 after:h-4 after:w-4 after:rounded-full after:border after:border-gray-300 after:bg-white after:transition-all after:content-[''] peer-checked:after:-translate-x-[120%] peer-focus-visible:ring-4 peer-focus-visible:ring-purplish-blue ltr:peer-checked:after:translate-x-full"></div>
+            <span
+              className={`text-sm font-medium  ${
+                isMonthly ? "text-cool-gray" : "text-marine-blue"
+              }`}
+            >
+              Yearly
             </span>
           </label>
         </div>
