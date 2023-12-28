@@ -42,9 +42,8 @@ function SelectPlanForm({
         <div className="mb-8 flex flex-col gap-4 md:flex-row">
           <label
             htmlFor="arcade"
-            className={`flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue md:flex-col md:items-start md:gap-10 ${
-              plan.id === "arcade" ? "bg-light-gray/20 ring-purplish-blue" : ""
-            }`}
+            className="flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue has-[:checked]:bg-light-gray/20 has-[:focus-visible]:ring-4 has-[:checked]:ring-purplish-blue
+              has-[:focus-visible]:ring-purplish-blue md:flex-col md:items-start md:gap-10"
           >
             <input
               id="arcade"
@@ -65,15 +64,12 @@ function SelectPlanForm({
           </label>
           <label
             htmlFor="advanced"
-            className={`flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue md:flex-col md:items-start md:gap-10 ${
-              plan.id === "advanced"
-                ? "bg-light-gray/20 ring-purplish-blue"
-                : ""
-            }`}
+            className="flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue has-[:checked]:bg-light-gray/20 has-[:focus-visible]:ring-4 has-[:checked]:ring-purplish-blue
+              has-[:focus-visible]:ring-purplish-blue md:flex-col md:items-start md:gap-10"
           >
             <input
               id="advanced"
-              className="sr-only"
+              className="peer sr-only"
               type="radio"
               name="advanced"
               value={12}
@@ -90,9 +86,8 @@ function SelectPlanForm({
           </label>
           <label
             htmlFor="pro"
-            className={`flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue md:flex-col md:items-start md:gap-10 ${
-              plan.id === "pro" ? "bg-light-gray/20 ring-purplish-blue" : ""
-            }`}
+            className="flex flex-1 items-center gap-4 rounded-lg p-4 ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue has-[:checked]:bg-light-gray/20 has-[:focus-visible]:ring-4 has-[:checked]:ring-purplish-blue
+              has-[:focus-visible]:ring-purplish-blue md:flex-col md:items-start md:gap-10"
           >
             <input
               id="pro"
