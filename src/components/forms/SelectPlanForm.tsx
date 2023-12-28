@@ -26,7 +26,7 @@ function SelectPlanForm({
   };
 
   const handleBillingChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
+    const { value } = e.target;
     console.log(value);
     updateFormData({
       isMonthly: !isMonthly,
@@ -108,7 +108,7 @@ function SelectPlanForm({
           </label>
         </div>
         <div className="flex justify-center rounded-lg bg-lighter-blue p-3">
-          <label className="relative inline-flex cursor-pointer items-center gap-4">
+          <label className="relative inline-flex cursor-pointer items-center gap-4 text-sm font-medium">
             <span
               className={`text-sm font-medium  ${
                 isMonthly ? "text-marine-blue" : "text-cool-gray"

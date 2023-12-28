@@ -35,7 +35,7 @@ function App() {
     useMultiStepForm([
       <YourInfoForm {...formData} updateFormData={updateFormData} />,
       <SelectPlanForm {...formData} updateFormData={updateFormData} />,
-      <AddOnsForm />,
+      <AddOnsForm {...formData} updateFormData={updateFormData} />,
       <SummaryForm />,
     ]);
   console.log(formData);
