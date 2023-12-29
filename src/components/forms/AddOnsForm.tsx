@@ -44,7 +44,7 @@ function AddOnsForm({ addOns, isMonthly }: AddOnsFormProps) {
             </span>
           </span>
           <span className="ml-auto font-ubuntuRegular text-sm text-purplish-blue">
-            +$1/mo
+            {`${isMonthly ? "+$1/mo" : "+$10/yr"}`}
           </span>
         </label>
         <label className="flex items-center gap-4 rounded-lg px-4 py-3 font-ubuntuMedium text-base text-marine-blue ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue has-[:checked]:bg-light-gray/20 has-[:focus-visible]:ring-4 has-[:checked]:ring-purplish-blue has-[:focus-visible]:ring-purplish-blue md:gap-6 md:py-4">
@@ -73,7 +73,7 @@ function AddOnsForm({ addOns, isMonthly }: AddOnsFormProps) {
             </span>
           </span>
           <span className="ml-auto font-ubuntuRegular text-sm text-purplish-blue">
-            +$2/mo
+            {`${isMonthly ? "+$2/mo" : "+$20/yr"}`}
           </span>
         </label>
         <label className="flex items-center gap-4 rounded-lg px-4 py-3 font-ubuntuMedium text-base text-marine-blue ring-1 ring-light-gray transition-colors hover:cursor-pointer hover:ring-purplish-blue has-[:checked]:bg-light-gray/20 has-[:focus-visible]:ring-4 has-[:checked]:ring-purplish-blue has-[:focus-visible]:ring-purplish-blue md:gap-6 md:py-4">
@@ -102,7 +102,7 @@ function AddOnsForm({ addOns, isMonthly }: AddOnsFormProps) {
             </span>
           </span>
           <span className="ml-auto font-ubuntuRegular text-sm text-purplish-blue">
-            +$2/mo
+            {`${isMonthly ? "+$2/mo" : "+$20/yr"}`}
           </span>
         </label>
       </div>

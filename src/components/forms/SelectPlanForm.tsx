@@ -50,7 +50,7 @@ function SelectPlanForm({
               className="sr-only"
               type="radio"
               name="arcade"
-              value={9}
+              value={isMonthly ? 9 : 90}
               checked={plan.id === "arcade"}
               onChange={handlePlanChange}
             />
@@ -58,7 +58,7 @@ function SelectPlanForm({
             <span className="flex flex-col font-ubuntuMedium text-lg">
               Arcade
               <span className="font-ubuntuRegular text-base text-cool-gray">
-                $9/mo
+                {`${isMonthly ? "+$9/mo" : "+$90/yr"}`}
               </span>
             </span>
           </label>
@@ -72,7 +72,7 @@ function SelectPlanForm({
               className="peer sr-only"
               type="radio"
               name="advanced"
-              value={12}
+              value={isMonthly ? 12 : 120}
               checked={plan.id === "advanced"}
               onChange={handlePlanChange}
             />
@@ -80,7 +80,7 @@ function SelectPlanForm({
             <span className="flex flex-col font-ubuntuMedium text-lg">
               Advanced
               <span className="font-ubuntuRegular text-base text-cool-gray">
-                $9/mo
+                {`${isMonthly ? "+$12/mo" : "+$120/yr"}`}
               </span>
             </span>
           </label>
@@ -94,7 +94,7 @@ function SelectPlanForm({
               className="sr-only"
               type="radio"
               name="pro"
-              value={15}
+              value={isMonthly ? 15 : 150}
               checked={plan.id === "pro"}
               onChange={handlePlanChange}
             />
@@ -102,7 +102,7 @@ function SelectPlanForm({
             <span className="flex flex-col font-ubuntuMedium text-lg">
               Pro
               <span className="font-ubuntuRegular text-base text-cool-gray">
-                $9/mo
+                {`${isMonthly ? "+$15/mo" : "+$150/yr"}`}
               </span>
             </span>
           </label>
