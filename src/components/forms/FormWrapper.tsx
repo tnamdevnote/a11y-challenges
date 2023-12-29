@@ -14,7 +14,7 @@ function FormWrapper({
   return (
     <fieldset form={formId}>
       <legend>
-        <h2 className="font-ubuntuBold text-heading text-marine-blue">
+        <h2 className="font-ubuntuBold text-2xl text-marine-blue md:text-heading">
           {title}
         </h2>
         <p className="font-ubuntuRegular text-lg text-cool-gray">{subtitle}</p>

@@ -57,7 +57,7 @@ function App() {
           </button>
         ))}
       </div>
-      <section className="mx-8 my-[99px] min-h-96 w-full max-w-[940px] rounded-xl bg-white drop-shadow-xl md:flex lg:mx-auto">
+      <section className="mx-4 my-[99px] min-h-96 w-full max-w-[940px] rounded-xl bg-white drop-shadow-xl md:flex lg:mx-auto">
         <div className="m-4 mr-0 hidden h-[568px] w-[274px] flex-shrink-0 md:flex md:flex-col md:bg-bg-sidebar-desktop">
           {steps.map((_, i) => (
             <button
@@ -76,7 +76,7 @@ function App() {
         </div>
         <form
           id="multi-step_form"
-          className="p-8 md:flex md:w-full md:flex-col md:justify-between md:px-16 md:pt-16"
+          className="px-6 py-8 md:flex md:w-full md:flex-col md:justify-between md:px-16 md:pt-16"
         >
           {currentStep}
           <div className="hidden md:flex md:justify-end">
